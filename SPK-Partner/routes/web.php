@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\KriteriaController;
+use App\Http\Controllers\SubKriteriaController;
+use App\Http\Controllers\AlternatifController;
+use App\Http\Controllers\NilaiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +24,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('kriteria', KriteriaController::class);
+
+Route::resource('alternatif', AlternatifController::class);
+
+Route::resource('subkriteria', SubKriteriaController::class);
+
+Route::resource('nilai', NilaiController::class);
+
+Route::get('/hasil', [App\Http\Controllers\HasilController::class, 'index']);
